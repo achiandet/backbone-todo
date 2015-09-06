@@ -57,15 +57,15 @@ gulp.task('html', function() {
 // //////////////////////////////////////////////
 
 // task to clean the existing build dir
-gulp.task('build:cleanfolder', function(cb) {
-	del([
+gulp.task('build:clean', function() {
+	return del([
 		'build/**'
-	], cb);
+	]);
 });
 
 
 // task to create the build dir for all files
-gulp.task('build:copy', ['build:cleanfolder'], function() {
+gulp.task('build:copy', ['build:clean'], function() {
 	return gulp.src('app/**/*/')
 	.pipe(gulp.dest('build/'));
 });
